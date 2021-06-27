@@ -1,0 +1,27 @@
+
+input[type="text"]{
+    border: solid 1px;
+    width: 100%;
+    padding: .5em;
+    box-sizing: border-box;
+    border-radius: .2em;
+    margin-top: 1.2em;
+    margin-bottom: 1.2em; 
+}
+
+input[type="button"] {
+    background-color: #354C9D;
+    width: 100%;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: .5em 0;
+    border-radius: .2em;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+
+
+
+

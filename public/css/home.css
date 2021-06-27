@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+.title {
+    height: 3em;
+    background-color: #3f3f3f;
+    padding: 10px;
+    text-align: left;
+    color: white;
+    font-size: 24px;
+}
+
+/*button */
+.button_wraper {
+    margin-top: 3em;
+    margin-left: 20em;
+}
+.add_team {
+    background-color: #354C9D;
+    color: white;
+    padding: .5em;
+    border-radius: .2em;
+    border-style: none;
+    margin-right: 1em;
+    cursor: pointer;
+}
+.rmv_team {
+    background-color: #EB5757;
+    color: white;
+    padding: .5em;
+    border-radius: .2em;
+    border-style: none;
+    cursor: pointer;
+}

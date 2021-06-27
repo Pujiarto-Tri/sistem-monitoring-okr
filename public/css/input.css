@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body {
+    overflow-x: hidden;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+#heading {
+    width: 100%;
+    margin-bottom: 3em;
+}
+
+.title {
+    text-align: center;
+    margin-top: -2em;
+}
+
+.input_field {
+    position: relative;
+    left: 50%;
+    width: 500px;
+    margin-left: -15em;
+}
+input[type="text"] {
+    border: solid 1px;
+    width: 90%;
+    padding: 1em;
+    box-sizing: border-box;
+    border-radius: 0.2em;
+    margin-top: 1em;
+    margin-bottom: .5em; 
+    margin-left: .9em;
+}
+
+input[type="button"] {
+    width: 90%;
+    border: none;
+    color: white;
+    padding: .5em 0em;
+    border-radius: 0.2em;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: .5em;
+    margin-left: .7em;
+    margin-bottom: 1em;
+}
+.input_btn {
+    margin-top: 4em;
+    margin-left: -.2em;
+}
+
+.quarter_select {
+    width: 90%;
+    border: solid 1px;
+    color: black;
+    padding: .5em 0em;
+    border-radius: 0.2em;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: .5em;
+    margin-left: .7em;
+    margin-bottom: 1em;
+    text-align-last: center;
+}
+
+#newKeyResultButton {
+    background-color:#C4C4C4 ;
+    color: black;
+}
+#select_quarter_button {
+    background-color: #C4C4C4;
+    color: black;
+}
+#save_button {
+    background-color: #354C9D;
+    color: white;
+}
+#cancel_button {
+    background-color: #EB5757;
+    color: white;
+}
+.delete-button{
+    color: red;
+    float:right;
+    margin-top: 1em;
+}
+#deleteKeyResult {
+    background-color: #EB5757;
+    color: white;
+}

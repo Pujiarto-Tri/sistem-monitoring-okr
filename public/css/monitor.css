@@ -1,0 +1,87 @@
+
+.teamcontainer {
+    display:flex;
+}
+/* Teamname and Quarter box */
+.teamname {
+    text-align: left;
+    background-color: #1E3F57;
+    color: white;
+    width: 20em;
+    font-size: 20px;   
+    padding: .5em;
+    border-radius: .2em;
+}
+.spacer {
+    width: 50em;
+}
+.quarterbox {
+    text-align: center;
+    background-color: #CECECE;
+    width: 20em;
+    font-size: 20px;
+    border-radius: .2em;
+    padding: .5em;
+    float: right;
+}
+
+/* objective fulfillment */
+.objective_fulfillment {
+    margin-top: 1.1em;
+}
+
+/*objective box*/
+.table_container {
+    display: flex;
+    margin-top: 1em;
+    padding: 0;
+}
+.objective {
+    margin-top: 4.5em;
+    margin-left: 1em;
+    padding: 0px;
+}
+
+.objfull_width {
+    text-align: center;
+    font-size: 16px;
+}
+
+.progress_title {
+    text-align: center;
+    font-size: 16px;
+    width: 35%;
+}
+
+.obj_title {
+    text-align: left;
+    font-size: 16px;
+    width: 65%;
+    font-weight: bold;
+}
+.obj_spacer {
+    width: 10px;
+}
+/* Quarter month */
+
+.quarter {
+    margin-top: 1em;
+    float: right;
+    text-align: center;
+    font-size: 16px;
+    /* position: relative; */
+}
+
+/*total objective fulfillment box*/
+.total_objective_fulfillment {
+    margin-top: 1.1em;
+    margin-left: 31.6em;
+    margin-bottom: 1.1em;
+}
+.total_objective_full_width{
+    width: 250px;
+}
+.total_progressbar_percentage {
+    width: 230px;
+}
+

@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+.profile {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 20em;
+    margin-left:-10em;
+    margin-top: -13em;
+    background-color: rgba(163,163,163,0.5);
+    padding:0.5em;
+    border-radius: 0.2em;
+    box-shadow: .2em .2em 2px grey;
+}
+.profilepic {
+    margin-left: 6em;
+    border-radius: 50%;
+}
+
+input[type="text"] {
+    background-color:white;
+    border: none;
+    width: 90%;
+    padding: 1em;
+    box-sizing: border-box;
+    border-radius: 0.2em;
+    margin-top: 1em;
+    margin-bottom: .5em; 
+    margin-left: .9em;
+}
+
+input[type="button"] {
+    background-color: #354C9D;
+    width: 90%;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 1em 0em;
+    border-radius: 0.2em;
+    font-size: 1.3em;
+    cursor: pointer;
+    margin-top: 2em;
+    margin-left: .9em;
+    margin-bottom: 1em;
+}

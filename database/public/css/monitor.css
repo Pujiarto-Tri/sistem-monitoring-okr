@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+#heading {
+    width: 100%;
+}
+
+.title {
+    text-align: center;
+    margin-top: -2em;
+}
+
+.teamcontainer {
+    display:flex;
+}
+/* Teamname and Quarter box */
+.teamname {
+    text-align: left;
+    background-color: #1E3F57;
+    color: white;
+    width: 20em;
+    font-size: 20px;
+    margin-top: 3em;
+    margin-left: 1em;
+    padding: .5em;
+    border-radius: .2em;
+}
+.spacer {
+    width: 50em;
+}
+.quarterbox {
+    text-align: center;
+    background-color: #CECECE;
+    width: 20em;
+    font-size: 20px;
+    margin-top: 3em;
+    margin-right: 1em;
+    border-radius: .2em;
+    padding: .5em;
+    float: right;
+}
+
+/* objective fulfillment */
+.objective_fulfillment {
+    width: 230px;
+    margin-top: 1em;
+}
+
+/*objective box*/
+.table_container {
+    display: flex;
+    margin-top: 1em;
+    padding: 0;;
+}
+.objective {
+    margin-top: 3.9em;
+    margin-left: 1em;
+    padding: 0px;
+}
+tr td {
+    border-color: white;
+    padding:0px;
+}
+
+.objfull_width {
+    text-align: center;
+    font-size: 16px;
+}
+.progressbar_percentage {
+    text-align: right;
+}
+
+.progress_title {
+    text-align: center;
+    font-size: 18px;
+    width: 150px;
+}
+
+.obj_title {
+    text-align: left;
+    font-size: 18px;
+    width: 500px;
+}
+.obj_spacer {
+    width: 10px;
+}
+/* Quarter month */
+
+.quarter {
+    margin-top: 1em;
+    float: right;
+    text-align: center;
+    font-size: 16px;
+    position: relative;
+}
+
+/*total objective fulfillment box*/
+.total_objective_fulfillment {
+    margin-top: 1em;
+    margin-left: 31.6em;
+}
+.total_objective_full_width{
+    width: 250px;
+}
+.total_progressbar_percentage {
+    width: 230px;
+}
+
+/*progress bar */
+
+
+
+/*button */
+.button_wraper {
+    margin-top: 3em;
+    margin-left: 2em;
+    margin-bottom: 2em;
+}
+.new_obj {
+    background-color: #354C9D;
+    color: white;
+    padding: .5em;
+    border-radius: .2em;
+    border-style: none;
+    margin-right: 1em;
+    cursor: pointer;
+}
+.rmv_obj {
+    background-color: #EB5757;
+    color: white;
+    padding: .5em;
+    border-radius: .2em;
+    border-style: none;
+    cursor: pointer;
+} 
+
+
