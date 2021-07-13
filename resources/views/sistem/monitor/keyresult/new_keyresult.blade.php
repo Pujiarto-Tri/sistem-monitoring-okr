@@ -45,13 +45,13 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    <!-- <div class="form-group row">
                         <label for="newKeyresult" class="col-md-4 col-form-label text-md-right">Progress</label>
                         <div class="col-md-6">
                             <input type="range" name="progress" class="form-control-range" id="formControlRange1" value="0" min="0" max="100" oninput="this.nextElementSibling.value = this.value">
                             <output>0</output>%
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="form-group row mb-0">
                         <div class="col-md-8 offset-md-4">

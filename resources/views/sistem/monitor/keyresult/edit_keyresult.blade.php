@@ -9,7 +9,7 @@
     <div class="col-md-8">
         <div class="card">
             <div class="card-header">
-                Edit Keyresult
+                Update Keyresult
             </div>
             <div class="card-body">
                 <form method="POST" action="/sistem/monitor/keyresult/details/{{ $keyresult->id }}">

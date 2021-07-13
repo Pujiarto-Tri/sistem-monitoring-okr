@@ -6,7 +6,7 @@
     <div class="col-md-8">
         <div class="card">
             <div class="card-header">
-                Edit Task
+                Update Initiative
             </div>
             <div class="card-body">
                 <form method="POST" action="/sistem/monitor/task/details/{{ $task->id }}">
@@ -14,7 +14,7 @@
                     @csrf   
 
                     <div class="form-group row">
-                        <label for="newObjective" class="col-md-4 col-form-label text-md-right">Task</label>
+                        <label for="newObjective" class="col-md-4 col-form-label text-md-right">Initiative</label>
                         <div class="col-md-6">
                             <input type="text" id=newObjective name="task_name" class="form-control @error ('task_name') is-invalid @enderror" value="{{ $task->task_name }}">
                                 @error('task_name')
@@ -25,12 +25,12 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label for="newObjective" class="col-md-4 col-form-label text-md-right">Task Details</label>
+                    <!-- <div class="form-group row">
+                        <label for="newObjective" class="col-md-4 col-form-label text-md-right">Initiative Details</label>
                         <div class="col-md-6">
                             <textarea id=newObjective name="task_details" class="form-control">{{ $task->task_details}}</textarea>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="form-group row">
                         <label for="newtask" class="col-md-4 col-form-label text-md-right">Start Date</label>

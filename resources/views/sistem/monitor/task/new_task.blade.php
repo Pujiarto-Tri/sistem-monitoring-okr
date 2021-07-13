@@ -6,14 +6,14 @@
     <div class="col-md-8">
         <div class="card"> 
             <div class="card-header">
-                New Inisiative
+                New Initiative
             </div>
             <div class="card-body">
                 <form method="POST" action="/sistem/monitor/index{{-- /{{$team->id} --}}">
                     @csrf   
 
                     <div class="form-group row">
-                        <label for="newtask" class="col-md-4 col-form-label text-md-right">Inisiative</label>
+                        <label for="newtask" class="col-md-4 col-form-label text-md-right">Initiative</label>
                         <div class="col-md-6">
                             <input type="text" id=newtask name="task_name" class="form-control @error ('task_name') is-invalid @enderror">
                                 @error('task_name')
@@ -24,12 +24,12 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    <!-- <div class="form-group row">
                         <label for="newtask" class="col-md-4 col-form-label text-md-right">Inisiative Details</label>
                         <div class="col-md-6">
                             <textarea id=newtask name="task_details" class="form-control"></textarea>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="form-group row">
                         <label for="newtask" class="col-md-4 col-form-label text-md-right">Start Date</label>
@@ -45,13 +45,13 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    <!-- <div class="form-group row">
                         <label for="newKeyresult" class="col-md-4 col-form-label text-md-right">Progress</label>
                         <div class="col-md-6">
                             <input type="range" name="progress" class="form-control-range" id="formControlRange1" value="0" min="0" max="100" oninput="this.nextElementSibling.value = this.value">
                             <output>0</output>%
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="form-group row mb-0">
                         <div class="col-md-8 offset-md-4">
