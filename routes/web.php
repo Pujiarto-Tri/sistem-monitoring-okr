@@ -25,15 +25,6 @@ Route::get('/sistem/home/account/account_details/{user}', 'UserController@show')
 Route::get('/sistem/home/account/account_details/account_edit/{user}', 'UserController@edit');
 
 /*
-Product page-------------------------------------------
-*/
-
-/* Route::get('/sistem/home/product/product_list', 'ProductController@index');
-Route::get('/sistem/home/product/add_product', 'ProductController@create');
-Route::get('/sistem/home/product/{product}/{team}', 'ProductController@show');
-Route::get('/sistem/home/product/{product}/{team}/edit_product', 'ProductController@edit');
- */
-/*
 Home page-------------------------------------------
 */
 Route::get('/sistem/home/edit_team/{team}', 'TeamController@edit');
@@ -47,8 +38,8 @@ Route::patch('/sistem/home/{team}', 'TeamController@update');
 /*
 Monitoring page-------------------------------------------
 */
-Route::get('/sistem/monitor/index/{team}', 'MonitorController@index');
 Route::get('/sistem/monitor/objective/new/{team}', 'MonitorController@create');
+Route::get('/sistem/monitor/index/{team}', 'MonitorController@index')->name('sistem.monitor.index');
 Route::get('/sistem/monitor/objective/details/{team}/{objective}', 'MonitorController@show');
 Route::post('/sistem/monitor/index/{team}', 'MonitorController@store');
 Route::get('/sistem/monitor/objective/edit/{team}/{objective}', 'MonitorController@edit');
@@ -59,6 +50,7 @@ Route::delete('/sistem/monitor/objective/details/{team}/{objective}', 'MonitorCo
 Keyresult page-------------------------------------------
 */
 Route::get('/sistem/monitor/keyresult/new/{team}/{objective}', 'KeyresultController@create');
+Route::post('/sistem/monitor/index/{team}/{objective}', 'KeyresultController@store');
 Route::get('/sistem/monitor/keyresult/details/{team}/{objective}/{keyresult}', 'KeyresultController@show');
 Route::get('sistem/monitor/keyresult/edit/{team}/{objective}/{keyresult}', 'KeyresultController@edit');
 Route::patch('/sistem/monitor/keyresult/{team}{objective}/{keyresult}', 'KeyresultController@update');

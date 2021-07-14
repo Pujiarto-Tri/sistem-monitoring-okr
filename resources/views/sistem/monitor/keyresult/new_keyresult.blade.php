@@ -9,9 +9,8 @@
                 New Keyresult
             </div>
             <div class="card-body">
-                <form method="POST" action="/sistem/monitor/index{{-- /{{$team->id} --}}">
+                <form method="POST" action="/sistem/monitor/index/{{$team->id}}/{{$objective->id}}">
                     @csrf   
-
                     <div class="form-group row">
                         <label for="newkeyresult" class="col-md-4 col-form-label text-md-right">Keyresult</label>
                         <div class="col-md-6">
@@ -44,14 +43,6 @@
                             <input type="date" id=newKeyresult name="until" class="form-control">
                         </div>
                     </div>
-
-                    <!-- <div class="form-group row">
-                        <label for="newKeyresult" class="col-md-4 col-form-label text-md-right">Progress</label>
-                        <div class="col-md-6">
-                            <input type="range" name="progress" class="form-control-range" id="formControlRange1" value="0" min="0" max="100" oninput="this.nextElementSibling.value = this.value">
-                            <output>0</output>%
-                        </div>
-                    </div> -->
 
                     <div class="form-group row mb-0">
                         <div class="col-md-8 offset-md-4">

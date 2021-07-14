@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\View;
 use Illuminate\Http\Request;
 use App\Models\Team;
 use App\Models\Objective;

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Controllers\MonitorContorller;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\View;
 use App\Models\Keyresult;
@@ -29,9 +29,6 @@ class MonitorController extends Controller
     {   
 
         $team = Team::where('id',$team->id)->first();
-
-        /* pivot */
-        /* $objective = Objective::with('keyresult')->get(); */
 
         $objective = Objective::with('keyresult')
                         ->where('team_id',$team->id)
@@ -68,7 +65,6 @@ class MonitorController extends Controller
     public function store(Request $request, Team $team)
     {
         $team = Team::where('id',$team->id)->first();
-
         $request->validate([
             'objective_name' => 'required',
             
@@ -85,7 +81,7 @@ class MonitorController extends Controller
         $deadline->until = $request->until;
         $deadline->save();
 
-        return redirect()->route('/sistem/monitor/index',[$team])->with('status', 'Objective Successfully Added');
+        return redirect()->route('sistem.monitor.index', ['team' => $team])->with('status', 'Objective Successfully Added');
     }
 
     /**
@@ -131,10 +127,10 @@ class MonitorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Team $team, Objective $objective, Deadline $deadline/* , Keyresult $keyresult, Deadline $deadline, Task $task */)
+    public function edit(Team $team, Objective $objective, Deadline $deadline)
     {
         //
-        return view('/sistem/monitor/objective/edit_objective', compact('objective', 'deadline','team'/* ,'keyresult','task' */));
+        return view('/sistem/monitor/objective/edit_objective', compact('objective', 'deadline','team'));
     }
 
     /**
@@ -160,10 +156,12 @@ class MonitorController extends Controller
         Deadline::where('id', $deadline->id)
                 -> update([
                         'date' => $request->date,
-                        'unitl' => $request->until,
+                        'until' => $request->until,
                 ]);
         
-        return redirect('/sistem/monitor/index')->with('status', 'Objective Successfully Updated');
+        /* return redirect('/sistem/monitor/index')->with('status', 'Objective Successfully Updated'); */
+        /* return redirect()->action([MonitorController::class, 'index'])->with('status', 'Objective Successfully Updated'); */
+        return redirect()->route('sistem.monitor.index', ['team' => $team])->with('status', 'Objective Successfully Updated');
     }
 
     /**
@@ -172,11 +170,11 @@ class MonitorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Objective $objective, Deadline $deadline)
+    public function destroy(Team $team, Objective $objective, Deadline $deadline)
     {
-        //
+        //for deleting objective
+        Objective::destroy($objective->id);
         Deadline::destroy($deadline->id);
-        Objective::destroy($objective->id);  
-        return redirect()->action([MonitorController::class, 'index'])->with('status', 'Objective Successfully Deleted');
+        return redirect()->route('sistem.monitor.index', ['team' => $team])->with('status', 'Objective Successfully Deleted');
     }
 }

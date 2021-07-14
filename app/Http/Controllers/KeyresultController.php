@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Controllers\MonitorContorller;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\View;
 use Illuminate\Http\Request;
 use App\Models\Team;
 use App\Models\Objective;
@@ -50,7 +52,6 @@ class KeyresultController extends Controller
 
         $request->validate([
             'keyresult_name' => 'required',
-            
         ]);
 
          keyresult::create([
@@ -63,8 +64,8 @@ class KeyresultController extends Controller
             'date' => $request->date,
             'until' => $request->until,
         ]);
-
-        return redirect('/sistem/monitor/objective/details/{team}/{objective}')->with('status', 'keyresult and new Keyresult Successfully Added');
+        return redirect()->action([MonitorController::class, 'index',['team'=>$team]])->with('status', 'Objective Successfully Added');
+        /* return redirect('/sistem/monitor/objective/details/{team}/{objective}')->with('status', 'keyresult and new Keyresult Successfully Added'); */
     }
 
     /**

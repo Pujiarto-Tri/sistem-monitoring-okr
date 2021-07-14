@@ -9,7 +9,8 @@
                 Edit Objective
             </div>
             <div class="card-body">
-                <form method="POST" action="/sistem/monitor/objective/edit/{{ $objective -> id }}">
+                <!-- <form method="POST" action="/sistem/monitor/objective/edit/{{ $objective -> id }}"> -->
+                <form method="POST" action="/sistem/monitor/objective/details/{{ $team->id}}/{{ $objective -> id }}">
                     @method('patch')
                     @csrf   
 
@@ -49,7 +50,7 @@
                         <div class="col-md-8 offset-md-4">
                             <button type="submit" class="btn btn-primary">Save</button>
                 </form>
-                            <a href="/sistem/monitor/objective/details/{{ $objective->id}}"><input type="button" class="btn btn-danger" value="Cancel"></a>    
+                            <a href="/sistem/monitor/objective/details/{{ $team->id }}/{{ $objective->id }}"><input type="button" class="btn btn-danger" value="Cancel"></a>    
                         </div>
                     </div>
             </div>

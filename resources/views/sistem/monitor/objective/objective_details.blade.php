@@ -42,7 +42,7 @@
                         Add a new Inisiative
                     </a>
                     <p></p>
-                    <form method="POST" class="d-inline">
+                    <form action="/sistem/monitor/objective/details/{{$team->id}}/{{$objective->id}}" method="POST" class="d-inline">
                         @method('delete')
                         @csrf
                         <button type="submit" class="btn btn-danger"> Delete </button>
