@@ -5,7 +5,9 @@
 <div class="container">
 
     <h1>Objective Details</h1>
-
+    <!-- @php
+    $obj_det_full = array();
+    @endphp -->
     <div class="row">
         <div class="col-lg-6 mb-4">     
             <div class="card" style="width: 30rem;">
@@ -16,8 +18,12 @@
                     <h6 class="card-subtitle mb-2"> Keyresult List : </h6>
                     <ul>  
                         @foreach($keyresult as $keyresult)
-                        <li> <p class="card-text"> {{ $keyresult->keyresult_name }} </p> </li>
+                            <!-- @php
+                            $obj_det_full[] = $keyresult->progress;
+                            @endphp -->
+                        <li> <p class="card-text"> {{ $keyresult->keyresult_name }} </p> </li>       
                         @endforeach
+                        
                     </ul>
                     <h6 class="card-subtitle mb-2"> Initiative : </h6>
                     <ul>
@@ -25,12 +31,17 @@
                         <li> <p class="card-text"> {{ $task->task_name }} </p> </li>
                         @endforeach
                     </ul>
+                    <!-- @php
+                    $det_fullfillment = array_sum($obj_det_full) / count($obj_det_full);
+                    @endphp
                     <h6 class="card-subtitle mb-2"> Progress </h6>
                     <div class="progress" style="height: 20px;">
-                        <div class="progress-bar" role="progressbar" style="width: {{ $objective->progress }}%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
-                            {{ $objective->progress }}%
+                        <div class="progress-bar" role="progressbar" style="width:%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                @php
+                                print $det_fullfillment; echo "%";
+                                @endphp
                         </div>
-                    </div>
+                    </div> -->
                     <p></p>
                     <a href="/sistem/monitor/objective/edit/{{ $team->id }}/{{ $objective->id }}" class="btn btn-primary">
                         Edit
@@ -110,5 +121,6 @@
             </div>
         </div>
 </div>
+
 
 @endsection

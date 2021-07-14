@@ -11,7 +11,9 @@
         {{session('status')}}
     </div>
     @endif
-
+    @php
+    $obj_full = array();
+    @endphp
     <div class="container" style="text-align: center;">
         <h5>Planing dan Evaluasi Badan Sistem Informasi</h5>
     </div>  
@@ -29,7 +31,6 @@
                         <td></td>
                         <td class="w-50"></td>
                         <td class="w-5"></td>
-                        <td> Objective fulfillment</td>
                         <td>JAN</td>
                         <td>FEB</td>
                         <td>MAR</td>
@@ -53,13 +54,7 @@
                         <td>
                             Progress
                         </td>
-                        <td>
-                            <div class="progress" style="height: 20px;">
-                                <div class="progress-bar" role="progressbar" style="width: {{ $objective->progress}}%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
-                                </div>
-                            </div>
-                            {{ $objective->progress }}%
-                        </td>
+                        
                         @php
                         /* There still some bug objective quarter*/
                         $date = $objective->deadline->date;
@@ -82,24 +77,8 @@
                             $until_month = strtotime('+1 month', $until_month);
                             
                         }
-                    @endphp
-                    {{-- @php
-                    $date = $objective->deadline->date;
-                    $until = $objective->deadline->until;
-                    @endphp
-                        <td>
-                            @php
-                            $month1 = '2021-01-99';
-                            $month2 = '2021-01-00';
-                            if($date <= $month1 && $until >= $month2){
-                                echo '1';
-                            }
-                             else {
-                                 echo '0';
-                            }
-                            @endphp
-                        </td>
-                        repeat tilL DECEMBER if loop broken--}}
+                        @endphp
+
                     </tr> 
                     @foreach ($objective->keyresult as $keyresult)
                         <tr>
@@ -111,14 +90,16 @@
                             </td>
 
                             <td>
+                                @php
+                                $obj_full[] = $keyresult->progress;
+                                @endphp
                                 <div class="progress" style="height: 20px;">
                                     <div class="progress-bar" role="progressbar" style="width: {{ $keyresult->progress }}%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">  
                                     </div>  
                                 </div>
                                 {{ $keyresult->progress }}%
                             </td>
-                            <td>
-                            </td>
+                            
                             @php
                                 /* There still some bug */
                                 $date = $keyresult->deadline->date;
@@ -160,8 +141,6 @@
                                 </div>
                                 {{ $task->progress }}%
                             </td>
-                            <td>
-                            </td>
                             @php
                                 /* There still some bug */
                                 $date = $task->deadline->date;
@@ -187,12 +166,30 @@
                             @endphp
                         </tr>
                     @endforeach
+                            @php
+                            $fullfillment = array_sum($obj_full) / count($obj_full);
+                            @endphp
+                    <tr>
+                        <td style="font-weight:bold;"></td>
+                        <td>       
+                                <div style="font-weight:bold;"> Progress From Objective : {{ $objective->objective_name }}</div>
+                        </td>
+                        <td>
+                        
+                            <div class="progress" style="height: 20px;">
+                            <div class="progress-bar" role="progressbar" style="width:<?php echo $fullfillment;?>%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                            </div>
+                            </div>
+                                @php
+                                print $fullfillment; echo "%";
+                                @endphp
+                          
+                        </td>
                     </tbody>
             </table>
 
         </div>
     @endforeach
-    
     
     <div class="mt-3 rounded" style="background-color: white;">
         <table class="table table-bordered">

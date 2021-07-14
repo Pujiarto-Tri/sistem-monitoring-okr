@@ -9,7 +9,7 @@
                 New Keyresult
             </div>
             <div class="card-body">
-                <form method="POST" action="/sistem/monitor/index/{{$team->id}}/{{$objective->id}}">
+                <form method="POST" action="{{route('sistem.monitor.keyresult.store', [$team->id, $objective->id])}}">
                     @csrf   
                     <div class="form-group row">
                         <label for="newkeyresult" class="col-md-4 col-form-label text-md-right">Keyresult</label>

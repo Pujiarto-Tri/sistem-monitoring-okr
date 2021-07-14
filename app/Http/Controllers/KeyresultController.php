@@ -43,29 +43,29 @@ class KeyresultController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Objective $objective/* , Team $team */)
+    public function store(Request $request, $team, Objective $objective)
     {
-        //
-        /* $team = Team::where('id',$team->id)->first(); */
-
+        
         $objective = Objective::where('id',$objective->id)->first();
 
         $request->validate([
             'keyresult_name' => 'required',
         ]);
 
-         keyresult::create([
-            'keyresult_name' => $request->keyresult_name,
-            'keyresult_details' => $request->keyresult_details,
-            'progress' => $request->progress
-        ]);
+        $keyresult = new Keyresult();
+        $keyresult->keyresult_name = $request->keyresult_name;
+        $keyresult->keyresult_details = $request->keyresult_details;
+        $keyresult->objective_id = $objective->id;
+        $keyresult->save();
 
-        Deadline::create([
-            'date' => $request->date,
-            'until' => $request->until,
-        ]);
-        return redirect()->action([MonitorController::class, 'index',['team'=>$team]])->with('status', 'Objective Successfully Added');
-        /* return redirect('/sistem/monitor/objective/details/{team}/{objective}')->with('status', 'keyresult and new Keyresult Successfully Added'); */
+        $deadline = new Deadline();
+        $deadline->keyresult_id = $keyresult->id;
+        $deadline->date = $request->date;
+        $deadline->until = $request->until;
+        $deadline->save();
+
+         
+        return redirect()->route('sistem.monitor.index', ['team' => $team])->with('status', 'Keyresult Successfully Added');
     }
 
     /**
@@ -109,7 +109,7 @@ class KeyresultController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Team $team, Objective $objective, Keyresult $keyresult, Deadline $deadline, $id)
+    public function update(Request $request, Team $team, Objective $objective, Keyresult $keyresult, Deadline $deadline)
     {
         //
         $request->validate([
@@ -126,10 +126,10 @@ class KeyresultController extends Controller
         Deadline::where('id', $deadline->id)
                 -> update([
                         'date' => $request->date,
-                        'unitl' => $request->until,
+                        'until' => $request->until,
                 ]);
         
-        return redirect('/sistem/monitor/keyresult/details/{{keyresult->id}}')->with('status', 'Keyresult Successfully Updated');
+        return redirect()->route('sistem.monitor.index', ['team' => $team])->with('status', 'Objective Successfully Updated');
     }
 
     /**
@@ -138,11 +138,11 @@ class KeyresultController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Keyresult $keyresult, Deadline $deadline, $id)
+    public function destroy($team, $objective, Keyresult $keyresult, Deadline $deadline)
     {
         //
         Keyresult::destroy($keyresult->id);
         Deadline::destroy($deadline->id);
-        return redirect('/sistem/monitor/index')->with('status', 'Keyresult Successfully Deleted');
+        return redirect()->route('sistem.monitor.index', ['team' => $team])->with('status', 'Keyresult Successfully Deleted');
     }
 }

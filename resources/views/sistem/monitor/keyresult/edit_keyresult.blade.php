@@ -12,7 +12,7 @@
                 Update Keyresult
             </div>
             <div class="card-body">
-                <form method="POST" action="/sistem/monitor/keyresult/details/{{ $keyresult->id }}">
+                <form action="{{ route('sistem.monitor.keyresult.details',[$team->id, $objective->id, $keyresult->id])}}" method="POST">
                     @method('patch')
                     @csrf   
 

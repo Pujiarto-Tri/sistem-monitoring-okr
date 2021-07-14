@@ -9,7 +9,7 @@
                 Update Initiative
             </div>
             <div class="card-body">
-                <form method="POST" action="/sistem/monitor/task/details/{{ $task->id }}">
+                <form action="{{ route('sistem.task.update',[$team->id, $objective->id, $task->id])}}" method="POST">
                     @method('patch')
                     @csrf   
 

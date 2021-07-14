@@ -9,7 +9,7 @@
                 Edit Objective
             </div>
             <div class="card-body">
-                <!-- <form method="POST" action="/sistem/monitor/objective/edit/{{ $objective -> id }}"> -->
+                
                 <form method="POST" action="/sistem/monitor/objective/details/{{ $team->id}}/{{ $objective -> id }}">
                     @method('patch')
                     @csrf   

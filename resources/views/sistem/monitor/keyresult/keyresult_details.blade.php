@@ -40,7 +40,7 @@
                         Cancel
                     </a>
                     <p></p>
-                    <form method="POST" class="d-inline">
+                    <form action="/sistem/monitor/keyresult/details/{{$team->id}}/{{$objective->id}}/{{$keyresult->id}}" method="POST" class="d-inline">
                         @method('delete')
                         @csrf
                         <button type="submit" class="btn btn-danger"> Delete </button>

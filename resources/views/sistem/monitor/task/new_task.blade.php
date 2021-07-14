@@ -9,9 +9,8 @@
                 New Initiative
             </div>
             <div class="card-body">
-                <form method="POST" action="/sistem/monitor/index{{-- /{{$team->id} --}}">
+                <form method="POST" action="{{route('sistem.task.store', [$team->id, $objective->id])}}">
                     @csrf   
-
                     <div class="form-group row">
                         <label for="newtask" class="col-md-4 col-form-label text-md-right">Initiative</label>
                         <div class="col-md-6">

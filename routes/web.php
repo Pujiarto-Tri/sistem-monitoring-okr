@@ -50,16 +50,17 @@ Route::delete('/sistem/monitor/objective/details/{team}/{objective}', 'MonitorCo
 Keyresult page-------------------------------------------
 */
 Route::get('/sistem/monitor/keyresult/new/{team}/{objective}', 'KeyresultController@create');
-Route::post('/sistem/monitor/index/{team}/{objective}', 'KeyresultController@store');
+Route::post('/sistem/monitor/keyresult/details/{team}/{objective}', 'KeyresultController@store')->name('sistem.monitor.keyresult.store');
 Route::get('/sistem/monitor/keyresult/details/{team}/{objective}/{keyresult}', 'KeyresultController@show');
 Route::get('sistem/monitor/keyresult/edit/{team}/{objective}/{keyresult}', 'KeyresultController@edit');
-Route::patch('/sistem/monitor/keyresult/{team}{objective}/{keyresult}', 'KeyresultController@update');
-Route::delete('/sistem/monitor/keyresult/{team}/{objective}/{keyresult}', 'KeyresultController@destroy');
+Route::patch('/sistem/monitor/keyresult/details/{team}/{objective}/{keyresult}', 'KeyresultController@update')->name('sistem.monitor.keyresult.details');
+Route::delete('/sistem/monitor/keyresult/details/{team}/{objective}/{keyresult}', 'KeyresultController@destroy');
 /*
 task page-------------------------------------------
 */
 Route::get('/sistem/monitor/task/new/{team}/{objective}', 'TaskController@create');
+Route::post('/sistem/monitor/objective/details/{team}/{objective}', 'TaskController@store')->name('sistem.task.store');
 Route::get('/sistem/monitor/task/details/{team}/{objective}/{task}', 'TaskController@show');
 Route::get('sistem/monitor/task/edit/{team}/{objective}/{task}', 'TaskController@edit');
-Route::patch('/sistem/monitor/task/{team}/{objective}/{task}', 'TaskController@update');
-Route::delete('/sistem/monitor/task/{team}/{objective}/{task}', 'TaskController@destroy');
+Route::patch('/sistem/monitor/task/details/{team}/{objective}/{task}', 'TaskController@update')->name('sistem.task.update');
+Route::delete('/sistem/monitor/task/details/{team}/{objective}/{task}', 'TaskController@destroy');

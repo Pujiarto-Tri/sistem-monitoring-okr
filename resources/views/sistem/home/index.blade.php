@@ -26,8 +26,7 @@
               <thead class="thead-dark">
                   <tr class="title" style="font-weight: bold">
                       <td scope="col">Team Name</td>
-                      <td scope="col">Progress</td>
-                      <td scope="col">Action</td>
+                      <td scope="col"></td>
                   </tr>
               </thead>
               <tbody> 
@@ -38,13 +37,6 @@
                         <a href="/sistem/monitor/index/{{$team->id}}">
                           {{$team->team_name}}
                         </a>
-                      </td>
-                      <td>
-                          <div class="progress bg-dark" style="height: 20px;">
-                              <div class="progress-bar" role="progressbar" style="width: {{ $team->progress }}%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
-                                {{ $team->progress }}%
-                              </div>
-                          </div>
                       </td>
                       <td>
                         <a href="/sistem/home/{{$team->id}}/{{$team->id}}" class="badge badge-primary">Details</a>

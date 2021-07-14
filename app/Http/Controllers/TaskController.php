@@ -38,7 +38,7 @@ class TaskController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Objective $objective)
+    public function store(Request $request, $team, Objective $objective)
     {
         //
         $objective = Objective::where('id',$objective->id)->first();
@@ -48,18 +48,18 @@ class TaskController extends Controller
             
         ]);
 
-        Task::create([
-            'task_name' => $request->task_name,
-            'task_details' => $request->task_details,
-            'progress' => $request->progress
-        ]);
+        $task = new Task();
+        $task->task_name = $request->task_name;
+        $task->objective_id = $objective->id;
+        $task->save();
 
-        Deadline::create([
-            'date' => $request->date,
-            'until' => $request->until,
-        ]);
+        $deadline = new Deadline();
+        $deadline->task_id = $task->id;
+        $deadline->date = $request->date;
+        $deadline->until = $request->until;
+        $deadline->save();
 
-        return redirect('/sistem/monitor/objective/details/{team}/{objective}')->with('status', 'New Task Successfully Added');
+        return redirect()->route('sistem.monitor.index', ['team' => $team])->with('status', 'Initiative Successfully Added');
     }
 
     /**
@@ -113,17 +113,16 @@ class TaskController extends Controller
         Task::where('id', $task->id)
                 -> update([
                         'task_name' => $request->task_name,
-                        'task_details' => $request->task_details,
                         'progress' => $request->progress
                 ]);
         
         Deadline::where('id', $deadline->id)
                 -> update([
                         'date' => $request->date,
-                        'unitl' => $request->until,
+                        'until' => $request->until,
                 ]);
         
-        return redirect('/sistem/monitor/task/details/{{task->id}}')->with('status', 'task Successfully Updated');
+        return redirect()->route('sistem.monitor.index', ['team' => $team])->with('status', 'Initiative Successfully Updated');
     }
 
     /**
@@ -132,11 +131,11 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Task $task, Deadline $deadline, $id)
+    public function destroy($team, $objective, Task $task, Deadline $deadline)
     {
         //
         Task::destroy($task->id);
         Deadline::destroy($deadline->id);
-        return redirect('/sistem/monitor/index')->with('status', 'task Successfully Deleted');
+        return redirect()->route('sistem.monitor.index', ['team' => $team])->with('status', 'Initiative Successfully Deleted');
     }
 }
