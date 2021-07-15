@@ -88,7 +88,7 @@
                         @endforeach
                     </ul>
 
-                    <div class="input-group mb-3">
+                    <!-- <div class="input-group mb-3">
                         <div class="custom-file">
                           <input type="file" class="custom-file-input" id="inputGroupFile02">
                           <label class="custom-file-label" for="inputGroupFile02">Upload Report</label>
@@ -96,10 +96,13 @@
                         <div class="input-group-append">
                           <span class="input-group-text" id="">Upload</span>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <a href="/sistem/monitor/details/{{ $objective->id }}/{{-- {{ $keyresult->objective_id }} --}}{{-- /{{ $deadline -> objective_id }} --}}{{-- /{{ $task -> objective_id }} --}}/crud_monitor/edit_objective" class="btn btn-primary">
-                        Save
+                    <a href="/sistem/monitor/objective/report/{{$team->id}}/{{$objective->id}}" class="btn btn-success">
+                        Upload Report
+                    </a>
+                    <a href="/sistem/monitor/objective/report/index/{{$team->id}}/{{$objective->id}}" class="btn btn-primary">
+                        View Report
                     </a>
 
                 </div>

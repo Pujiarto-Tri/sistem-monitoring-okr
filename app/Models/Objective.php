@@ -37,4 +37,9 @@ class Objective extends Model
         return $this->hasOne(Deadline::class);
     }
 
+    public function report()
+    {
+        return $this->hasMany(Report::class,'objective_id');
+    }
+
 }

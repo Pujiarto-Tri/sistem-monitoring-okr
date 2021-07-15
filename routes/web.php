@@ -64,3 +64,10 @@ Route::get('/sistem/monitor/task/details/{team}/{objective}/{task}', 'TaskContro
 Route::get('sistem/monitor/task/edit/{team}/{objective}/{task}', 'TaskController@edit');
 Route::patch('/sistem/monitor/task/details/{team}/{objective}/{task}', 'TaskController@update')->name('sistem.task.update');
 Route::delete('/sistem/monitor/task/details/{team}/{objective}/{task}', 'TaskController@destroy');
+
+/* report page */
+Route::get('/sistem/monitor/objective/report/{team}/{objective}', 'ReportController@create')->name('sistem.report.create');
+Route::post('/sistem/monitor/objective/report/details/{team}/{objective}', 'ReportController@store')->name('sistem.report.store');
+Route::get('/sistem/monitor/objective/report/index/{team}/{objective}', 'ReportController@index')->name('sistem.report.index');
+
+Route::get('/sistem/monitor/objective/report/index/{team}/{objective}/{filename}', 'ReportController@getReport')->name('sistem.report.download');
