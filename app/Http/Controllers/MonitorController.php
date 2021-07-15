@@ -105,7 +105,7 @@ class MonitorController extends Controller
                         ->where('objective_id',$objective->id)
                         ->get();
 
-        $deadline = Deadline::select('date')
+        $deadline = Deadline::select('date','until')
                         ->where('objective_id',$objective->id)
                         ->first();
 

@@ -13,6 +13,7 @@
     @endif
     @php
     $obj_full = array();
+    $fully = array();
     @endphp
     <div class="container" style="text-align: center;">
         <h5>Planing dan Evaluasi Badan Sistem Informasi</h5>
@@ -23,7 +24,8 @@
             <h2>{{ $team->team_name }}</h2>
         </div>
     </div>
-    @foreach ($objective as $objective)    
+    @foreach ($objective as $objective) 
+    
         <div class="mt-3" style="background-color: white;">
                 <table class="table table-bordered" style="width=100%">
                     <tbody>
@@ -45,6 +47,8 @@
                         <td>DEC</td>
                     </tr>
                     <tr>
+                       
+                
                         <td style="font-weight:bold;">Objective</td>
                         <td>       
                             <a href="/sistem/monitor/objective/details/{{ $team->id }}/{{ $objective->id }}">
@@ -168,6 +172,8 @@
                     @endforeach
                             @php
                             $fullfillment = array_sum($obj_full) / count($obj_full);
+                            
+                            $fully[] = $fullfillment;
                             @endphp
                     <tr>
                         <td style="font-weight:bold;"></td>
@@ -181,7 +187,8 @@
                             </div>
                             </div>
                                 @php
-                                print $fullfillment; echo "%";
+                                echo round($fullfillment); 
+                                echo "%";
                                 @endphp
                           
                         </td>
@@ -194,11 +201,17 @@
     <div class="mt-3 rounded" style="background-color: white;">
         <table class="table table-bordered">
             <tr>
+            @php
+            $total_ob = array_sum($fully) / count($fully);
+            @endphp
                 <td>Total Objective fulfillment</td>
                 <td>
                     <div class="progress" style="height: 20px;">
-                        <div class="progress-bar" role="progressbar" style="width: {{ $team->progress }}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                            {{ $team->progress }}%
+                        <div class="progress-bar" role="progressbar" style="width:<?php echo $total_ob;?>%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                                @php
+                                echo round($total_ob); 
+                                echo "%";
+                                @endphp
                         </div>
                     </div>
                 </td>

@@ -16,12 +16,6 @@
                     <li> <p class="card-text"> {{$objective->objective_name}} </p> </li>
                     @endforeach
                 </ul>
-                <h6 class="card-subtitle mb-2"> Progress </h6>
-                <div class="progress" style="height: 20px;">
-                    <div class="progress-bar" role="progressbar" style="width: {{ $team->progress }}%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
-                        {{ $team->progress }}%
-                    </div>
-                </div>
                 <p></p>
                 <a href="/sistem/home/edit_team/{{$team->id}}" class="btn btn-primary">Edit</a>
                 <form action="/sistem/home/{{$team->id}}" method="POST" class="d-inline">
